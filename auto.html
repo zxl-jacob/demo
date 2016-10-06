@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        header,
+        footer {
+            height: 50px;
+            background-color: green;
+            text-align: center;
+            line-height: 50px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            width: 33.3%;
+            height: 50px;
+            float: left;
+            background: yellow;
+            background-clip: content-box;
+            box-sizing: border-box;
+            padding: 10px 10px;
+            list-style: none;
+            text-align: center;
+            line-height: 30px;
+        }
+        ul li:first-child {
+            padding-left: 0;
+        }
+        ul li:last-child {
+            padding-right: 0;
+        }
+        footer {
+            clear: both;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        头部
+    </header>
+    <ul>
+        <li>文本</li>
+        <li>文本</li>
+        <li>文本</li>
+    </ul>
+    <footer>
+        尾部
+    </footer>
+</body>
+</html>

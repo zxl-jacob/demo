@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Video</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+        .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        video {
+            width: 800px;
+        }
+        .choose {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            height: 100%;
+            background: hsla(0, 0%, 0%, .8);
+            z-index: 10;
+        }
+        .choose i {
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <video src="" controls></video>
+        <div class="choose">
+            <i class="material-icons">chevron_left</i>
+            <i class="material-icons">chevron_right</i>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var videos = [
+                'http://cn-hbjz2-dx.acgvideo.com/vg6/8/4c/7138113.mp4?expires=1461234000&ssig=B1JO4mzP21aJRJ9aXQGk3Q&oi=454112574&internal=1&rate=0',
+                'http://cn-hbyc7-dx.acgvideo.com/vg3/7/21/7131897-1.mp4?expires=1461234300&ssig=tG3XSg3Ozpbl3TKwErvlTw&oi=454112574&internal=1&rate=0'
+            ];
+            var videoBox = document.getElementsByTagName('video')[0];
+            var choose = document.getElementsByClassName('choose')[0];
+            var showChoose = function (event) {
+                choose.style.display = 'flex';
+            }
+            var switchVideo = function (event) {
+                var index = videos.indexOf(videoBox.getAttribute('src'));
+                if (event.target.innerText === 'chevron_left') {
+                    var prevIndex;
+                    if (index === 0) {
+                        prevIndex = videos.length - 1;
+                    } else {
+                        prevIndex = 2*index+1;
+                    }
+                    videoBox.setAttribute('src', videos[prevIndex]);
+                    choose.style.display = 'none';
+                } else if (event.target.innerText === 'chevron_right') {
+                    var nextIndex;
+                    if (index === videos.length - 1) {
+                        nextIndex = 0;
+                    } else {
+                        nextIndex = 2*(index+1);
+                    }
+                    videoBox.setAttribute('src', videos[nextIndex]);
+                    choose.style.display = 'none';
+                }
+            }
+            if (videoBox.getAttribute('src') === '') {
+                videoBox.setAttribute('src', videos[0]);
+            }
+            videoBox.addEventListener('ended', showChoose);
+            choose.addEventListener('click', switchVideo);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+body{
+    background: #F7F7F7;
+}
+.block-group{
+    background: #fff;
+    padding-top: 15px;
+    width: 96%;
+    margin:0 auto;
+    margin-bottom: 10px;
+    .border{
+        border-bottom:1px solid #CCC;
+    }
+    .static-Input{
+        background: #fff;
+        margin-top:-5px;
+        border: none;
+        border-radius: 0;
+    }
+    .checkbox{
+        margin-right: 20px;
+        width: 23px;
+        height: 23px;
+        float: right;
+    }
+    input[type='checkbox']:checked+label:before{
+        content: "\2713";
+        background: red;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+        line-height: 17px;
+    }
+    label, .col-sm-10{
+        float: left;
+    }
+    .form-group{
+        margin-left: 0;
+        margin-right: 0;
+        padding: 5px 0px;
+    }
+    .col-sm-10{
+        width:70%;
+    } 
+}
+.form-btn{
+    width:100%;
+    .sub-btn{
+        display: block;
+        background: #F25A5A;
+        width: 80%;
+        margin:0 auto;
+        color:white;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="index.js"></script>
+</head>
+<style>
+    body{
+        background: rgba(198, 186, 186, 0.1);
+    }
+    .Fields{
+        margin-left: 150px;
+        width: 400px;
+        height: 200px;
+    }
+    .Fields,.Result{
+        color: #745454;
+        box-sizing: border-box;
+        position: absolute;
+        top:50%;
+        margin-top:-200px;
+    }
+    .Result{
+        width: 400px;
+        height: 300px;
+        background: rgba(243, 227, 227, 0.5);
+        right: 0;
+        margin-top: -180px;
+        margin-right: 150px;
+    }
+    .TextArea{
+        width: 100%;
+        height:100%;
+        border:5px solid #ddd;
+        border-radius: 10px;
+    }
+    .Fields input{
+        color: #745454;
+        font-size: 22px;
+        background: #fff;
+        border:1;
+        box-shadow: 0;
+        padding: 5px;
+        border-radius: 3px;
+    }
+    .Result table{
+        width: 100%;
+        margin-bottom: 20px;
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border: 2px;
+        border-color:#ddd;
+    }
+    tr{
+        background: #f9f9f9;
+    }
+    td{
+        line-height: 26px;
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="Fields">
+        <h1>词法分析器</h1>
+        <textarea class="TextArea"></textarea>
+        <input class='btn' type="button" value='分析词法'>
+    </div>
+    <div class="Result">
+        <table class='result_table'>
+            <tr>
+                <td><b>步骤</b></td>
+                <td><b>输出</b></td>
+                <td><b>含义</b></td>
+            </tr>
+            
+        </table>
+    </div>
+</body>
+</html>

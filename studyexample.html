@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Document</title>
+</head>
+<body>
+    <script>
+    // ajax原理
+    function CreateXmlHttp() {
+        //非IE浏览器创建XmlHttpRequest对象
+        if (window.XmlHttpRequest) {
+            xmlhttp = new XmlHttpRequest();
+        }
+
+        //IE浏览器创建XmlHttpRequest对象
+        if (window.ActiveXObject) {
+            try {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch (e) {
+                try {
+                    xmlhttp = new ActiveXObject("msxml2.XMLHTTP");
+                }
+                catch (ex) { }
+            }
+        }
+    }
+    function Ustbwuyi() {
+        var data = document.getElementById("username").value;
+        CreateXmlHttp();
+        if (!xmlhttp) {
+            alert("创建xmlhttp对象异常！");
+            return false;
+        }
+
+        xmlhttp.open("POST", url, false);
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4) {
+                document.getElementById("user1").innerHTML = "数据正在加载...";
+                if (xmlhttp.status == 200) {
+                    document.write(xmlhttp.responseText);
+                }
+            }
+        }
+        xmlhttp.send();
+    }
+
+
+    // 闭包的小例子
+    // var  Fun = function(){
+    //     var obj = {
+    //         'name':'zxl',
+    //         'age':19
+    //     };
+    //     return {
+    //             reset: function(objs){
+    //                 obj = objs;
+    //             },
+    //             log:function(){
+    //                 console.log('hello '+obj.name);
+    //             }
+    //         };
+    // }
+    // var childFun = Fun();
+    // console.log(childFun.obj);
+    // childFun.reset({'name':'yf','age':18});
+    // childFun.log();
+    // var childFun2 = Fun();
+    // childFun2.log();
+
+
+
+
+
+    // hash表进行数据排序
+    Array.prototype.uniques = function(){
+        var hash = {}, r = [];
+        for (var i = this.length - 1; i >= 0; i--) {
+            if (!hash[this[i]]) {
+                hash[this[i]] = true;
+                r.push(this[i]);
+            }
+        }
+        return r;
+    }
+    var a = [1,2,3,4,5,6,3,4,6];
+    var result = a.uniques();
+    console.log(result);
+
+        var array = [21,34343,43434,434434,434,4444,4444,43434,4343,434,43434,434];
+    //     //去重函数
+        function unique(arr)
+        {
+            var a = [],len = arr.length;
+            for(var i =0;i<len;i++){
+                if (a.indexOf(arr[i])==-1) 
+                    a.push(arr[i]);
+            }
+            return a;
+        }
+        console.log(unique(array));
+    
+
+    //     // 快速排序
+        function quickSort(arr){
+        if(arr.length<=1){
+            return arr;//如果数组只有一个数，就直接返回；
+        }
+
+        var num = Math.floor(arr.length/2);//找到中间数的索引值，如果是浮点数，则向下取整
+        var numValue = arr.splice(num,1);//找到中间数的值
+        var left = [];
+        var right = [];
+
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]<numValue){
+                left.push(arr[i]);//基准点的左边的数传到左边数组
+            }
+            else{
+                right.push(arr[i]);//基准点的右边的数传到右边数组
+            }
+        }
+        return quickSort(left).concat(numValue,quickSort(right));//递归不断重复比较
+    }
+
+    alert(quickSort(array));//弹出“2,16,32,37,45,87”
+
+        // 冒泡排序
+        function sort(arr){
+            var len = arr.length, temp = '';
+
+            if (len <= 1) {
+                return arr;
+            }
+
+            for( var i=0 ; i < len ; i++){
+
+                for(var j = 0 ;j < len-i-1; j++ ){
+                    if (arr[j]>arr[j+1]) {
+                        temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                    }
+                }
+
+            }
+            return arr;
+        }
+        sort([4,4,5,7,8,1,3]);
+
+        
+        
+    </script>
+</body>
+</html>            
